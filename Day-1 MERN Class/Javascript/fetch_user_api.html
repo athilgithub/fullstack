@@ -9,15 +9,27 @@
         margin: 0;
         padding: 0;
       }
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
       #container {
-        border: 2px solid red;
+        border: 2px solid #fff;
         padding: 10px;
         margin: 30px;
         border-radius: 10px 50px;
+        background-color: rgba(255, 255, 255, 0.1);
       }
       img{
-
         padding: 10px;
+      }
+      .user-card {
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .user-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
       }
     </style>
   </head>

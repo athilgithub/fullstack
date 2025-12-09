@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #667eea;
+            margin-bottom: 20px;
+        }
+        .user-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .info-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #667eea;
+            margin-right: 10px;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        .back-btn:hover {
+            background: #764ba2;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img id="avatar" class="profile-img" src="" alt="User Avatar">
+            <h1 id="username">Loading...</h1>
+        </div>
+        
+        <div class="user-info">
+            <div class="info-item">
+                <span class="info-label">User ID:</span>
+                <span id="userId"></span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Login:</span>
+                <span id="login"></span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Type:</span>
+                <span id="type"></span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Node ID:</span>
+                <span id="nodeId"></span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">GitHub URL:</span>
+                <a id="githubUrl" href="" target="_blank"></a>
+            </div>
+        </div>
+        
+        <a href="fetch_user_api.html" class="back-btn">← Back to Users</a>
+    </div>
+
+    <script>
+        // Get user data from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+        const login = urlParams.get('login');
+        const type = urlParams.get('type');
+        const avatar = urlParams.get('avatar');
+        const nodeId = urlParams.get('nodeId');
+        const url = urlParams.get('url');
+
+        // Display user details
+        document.getElementById('avatar').src = avatar;
+        document.getElementById('username').textContent = login;
+        document.getElementById('userId').textContent = userId;
+        document.getElementById('login').textContent = login;
+        document.getElementById('type').textContent = type;
+        document.getElementById('nodeId').textContent = nodeId || 'N/A';
+        document.getElementById('githubUrl').textContent = url;
+        document.getElementById('githubUrl').href = url;
+    </script>
+</body>
+</html>
